@@ -32,6 +32,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    packaging {
+        exclude("META-INF/DEPENDENCIES")
+    }
 }
 
 dependencies {
@@ -46,4 +49,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("com.github.Mokulu:discord-oauth2-api:1.0.4")
 }
