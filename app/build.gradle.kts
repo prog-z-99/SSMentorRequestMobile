@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
 }
@@ -14,6 +16,27 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val keystoreFile = project.rootProject.file("env.properties")
+        val properties = Properties()
+        properties.load(keystoreFile.inputStream())
+
+        //return empty key in case something goes wrong
+        val clientSecret = properties.getProperty("CLIENT_SECRET") ?: ""
+
+        buildConfigField(
+            type = "String",
+            name = "CLIENT_SECRET",
+            value = clientSecret
+        )
+
+        val clientId = properties.getProperty("CLIENT_ID") ?: ""
+
+        buildConfigField(
+            type = "String",
+            name = "CLIENT_ID",
+            value = clientId
+        )
     }
 
     buildTypes {
@@ -31,6 +54,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     packaging {
         exclude("META-INF/DEPENDENCIES")
@@ -46,8 +70,10 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.activity)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.github.Mokulu:discord-oauth2-api:1.0.4")
 }
+
