@@ -119,7 +119,7 @@ public class LandingActivity extends AppCompatActivity {
                             Log.d("error_auth", error.toString());
                         }) {
 
-                            //This is for Headers If You Needed
+                            //<></>his is for Headers If You Needed
                             @Override
                             public Map<String, String> getHeaders() throws AuthFailureError {
                                 Map<String, String> params = new HashMap<String, String>();

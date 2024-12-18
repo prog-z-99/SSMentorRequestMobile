@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.ssmentorrequestmobile.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,7 +37,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         Intent receivedIntent = getIntent();
-        Log.d("username", receivedIntent.getStringExtra("username"));
+        Bundle bundle = new Bundle();
+        bundle.putString("sub", receivedIntent.getStringExtra("sub"));
+        bundle.putString("username", receivedIntent.getStringExtra("username"));
+
+
+        HomeFragment homeFragment = new HomeFragment();
+        homeFragment.setArguments(bundle);
 
 
     }
