@@ -11,9 +11,10 @@
     tools:context=".LandingActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="600px"
         android:layout_height="wrap_content"
-        android:text="Log in with Discord" />
+        android:text="Welcome to Summoner School Mobile Application! Please log in with discord"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/button"

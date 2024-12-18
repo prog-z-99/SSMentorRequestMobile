@@ -71,9 +71,10 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.activity)
+    implementation(libs.volley)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.github.Mokulu:discord-oauth2-api:1.0.4")
+    implementation("com.google.code.gson:gson:2.11.0")
 }
 

@@ -1,12 +1,8 @@
 package com.example.ssmentorrequestmobile;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -17,13 +13,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.ssmentorrequestmobile.databinding.ActivityMainBinding;
-
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-
-import io.mokulu.discord.oauth.DiscordOAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        Intent receivedIntent = getIntent();
+        Log.d("username", receivedIntent.getStringExtra("username"));
 
 
     }
